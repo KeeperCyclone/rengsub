@@ -31,7 +31,7 @@ import operator
 
 def _splice(
         string: str,
-        replacement: str,
+        replacement: typing.Optional[str],
         start: typing.Optional[int] = None,
         stop: typing.Optional[int] = None
         ) -> str:
@@ -43,12 +43,12 @@ def _splice(
 
     If no replacement is supplied, the original string is returned unchanged.
     """
+    if replacement is None:
+        return string
     if start is None:
         start = 0
     if stop is None:
         stop = len(string)
-    if replacement is None:
-        return string
     
     result = f"{string[:start]}{replacement}{string[stop:]}"
     return result
