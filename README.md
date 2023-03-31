@@ -7,7 +7,7 @@ replace any string detected as the "copula" so that:
 ```python
 
 >>> rengsub.ReNamedGroupSub(
-...         "This (?P<copula>\w+) a string"
+...         r"This (?P<copula>\w+) a string"
 ...     ).__call__(
 ...                 string="This is a string",
 ...                 copula="was"
@@ -20,7 +20,7 @@ Or use the convenience function:
 ```python
 
 >>> rengsub.sub(
-...     re_pattern="This (?P<copula>\w+) a string",
+...     re_pattern=r"This (?P<copula>\w+) a string",
 ...     string="This is a string",
 ...     copula="was"
 ... ) == "This was a string"
